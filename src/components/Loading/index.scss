@@ -1,0 +1,10 @@
+@import '../../App.scss';
+
+.loading-wrapper {
+	padding: 10px;
+	border: 1px solid $main-border-color;
+	border-radius: 15px;
+	background: $background-transparent-color;
+	margin-top: 50px;
+	font-size: 25px;
+}

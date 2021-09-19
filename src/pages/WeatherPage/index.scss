@@ -1,0 +1,66 @@
+@import '../../App.scss';
+
+.weather-wrapper {
+	.input-wrapper {
+		width: 60%;
+		margin-top: 30px;
+		align-items: center;
+		position: relative;
+		.search-err {
+			position: absolute;
+			top: -23px;
+			left: 0;
+			font-size: 14px;
+			color: #960026;
+		}
+		.search-icon {
+			width: 25px;
+			position: absolute;
+			right: 0;
+			top: 10px;
+		}
+		.search-input {
+			width: 100%;
+			height: 30px;
+			border-radius: 30px;
+			background: $background-transparent-color;
+			outline: none;
+			border: 1px solid rgb(41 41 41 / 25%);
+			padding: 5px 15px;
+			font-size: 18px;
+			&::placeholder {
+				color: $primary-blue;
+			}
+		}
+		.suggestions-wrapper {
+			z-index: 1;
+			position: absolute;
+			top: 42px;
+			width: 100%;
+			background: #ffffffa6;
+			border-radius: 0 0 15px 15px;
+			text-align: left;
+			max-height: 155px;
+			overflow-y: auto;
+
+			&::-webkit-scrollbar {
+				width: 10px;
+				background-color: rgba(169, 169, 169, 0.199);
+			}
+			&::-webkit-scrollbar-track {
+				background-color: $background-transparent-color;
+			}
+			&::-webkit-scrollbar-thumb {
+				box-shadow: inset 0 0 6px $primary-blue;
+				border-radius: 50px;
+			}
+			.suggestion {
+				padding: 10px;
+				cursor: pointer;
+				&:hover {
+					background: #ffffff67;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+@import '../../App.scss';
+
+.daily-card-wrapper {
+	min-width: 120px;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid $main-border-color;
+	border-radius: 15px;
+	background: $background-transparent-color;
+	.daily-card-title {
+		font-size: 20px;
+		max-width: 130px;
+	}
+	.weather-icon {
+		width: 100%;
+		margin: 10px 0;
+	}
+	.temperature {
+		font-size: 14px;
+	}
+	.loading-wrapper {
+		margin-top: 0px;
+		width: 70px;
+		height: 85px;
+		.loading-img {
+			width: 100%;
+		}
+		.loding-text {
+			font-size: 14px;
+		}
+	}
+}

@@ -1,0 +1,111 @@
+@import '../../App.scss';
+
+.current-weather-card-wrapper {
+	max-width: 1000px;
+	position: relative;
+	width: 80%;
+	border-radius: 10px;
+	border: 1px solid $main-border-color;
+	background: $background-transparent-color;
+	margin-top: 60px;
+	.heart-icon {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		cursor: pointer;
+		transition: 0.5s;
+		&:hover {
+			width: 32px;
+			height: 32px;
+		}
+		path {
+			transition: fill 1s linear;
+			&.heart-icon_svg__heart-border {
+				fill: #920000;
+			}
+		}
+		&.marked {
+			path {
+				fill: #35a2c3;
+			}
+		}
+	}
+	.current-weather-row {
+		width: 100%;
+		justify-content: center;
+		padding: 25px 15px 50px;
+		.icon-wrapper {
+			flex: 1;
+			justify-content: center;
+			align-items: center;
+			.weather-icon {
+				width: 100%;
+				max-width: 400px;
+				min-width: 150px;
+			}
+		}
+		.current-weather-info {
+			padding: 15px;
+			flex: 1;
+			justify-content: center;
+			text-align: left;
+			font-size: 20px;
+			.city-name {
+				font-size: 30px;
+				margin: 10px 0;
+			}
+		}
+	}
+	.daily-forecasts-row {
+		position: absolute;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		width: 90%;
+		bottom: -90px;
+	}
+}
+
+@media only screen and (max-width: 905px) {
+	.current-weather-card-wrapper {
+		.daily-forecasts-row {
+			justify-content: center;
+			bottom: -300px;
+		}
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.current-weather-card-wrapper {
+		.daily-forecasts-row {
+			width: 110%;
+			.daily-card-wrapper {
+				margin: 5px;
+			}
+		}
+		.current-weather-row {
+			.current-weather-info {
+				font-size: 16px;
+				.city-name {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 359px) {
+	.current-weather-card-wrapper {
+		.daily-forecasts-row {
+			bottom: -637px;
+		}
+		.current-weather-row {
+			.icon-wrapper {
+				.weather-icon {
+					min-width: 130px;
+				}
+			}
+		}
+	}
+}

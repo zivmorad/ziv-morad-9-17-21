@@ -1,0 +1,106 @@
+$primary-blue: #1c254b;
+$light-blue: #a4dced;
+$dark-grey: #212121;
+$light-grey: #667a92;
+$error-red: #cc0033;
+$background-transparent-color: #ffffff5d;
+$main-border-color: rgba(41, 41, 41, 0.25);
+
+#root {
+	height: 100%;
+}
+
+.app {
+	height: 100%;
+	color: $primary-blue;
+	background-image: url('./assets/background-sky.jpg');
+
+	.btns-wrapper {
+		position: fixed;
+		top: 160px;
+		.btn {
+			width: 30px;
+			height: 30px;
+			background: $background-transparent-color;
+			font-size: 18px;
+			justify-content: center;
+			align-items: center;
+			padding: 13px;
+			border: 1px solid $main-border-color;
+			cursor: pointer;
+		}
+	}
+
+	&.dark {
+		background-image: linear-gradient(rgb(0 0 0 / 69%), rgb(0 0 0 / 45%)), url('./assets/background-sky.jpg');
+		.navbar-wrapper,
+		.favorites-wrapper,
+		.btns-wrapper,
+		.loading-wrapper,
+		.current-weather-row,
+		.daily-card-wrapper,
+		.suggestions-wrapper,
+		.search-input {
+			color: white !important;
+		}
+		.search-icon {
+			fill: white;
+		}
+		.search-input {
+			&::placeholder {
+				color: white !important;
+			}
+		}
+		.suggestions-wrapper {
+			background: #000000a6;
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.app {
+		.btns-wrapper {
+			top: 78px;
+			z-index: 1;
+			.btn {
+				width: 25px;
+				height: 25px;
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 415px) {
+	.app {
+		height: 130%;
+	}
+}
+@media only screen and (max-width: 350px) {
+	.app {
+		height: 200%;
+	}
+}
+.center-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.bold {
+	font-weight: 600;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
