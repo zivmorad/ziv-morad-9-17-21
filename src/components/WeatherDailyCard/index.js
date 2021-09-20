@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Loading from '../Loading';
 
-import { getCurrentWeather, updateDailyWeather } from '../../actions/weatherActions';
+import { getCurrentWeather, toggleFavoriteWeather, updateDailyWeather } from '../../actions/weatherActions';
 
 import { renderDayName } from '../../utils/renderDayName';
 import { renderWeatherIcon } from '../../utils/renderWeatherIcon';
 import { renderDegree } from '../../utils/renderDegree';
+
+import { ReactComponent as HeartIcon } from '../../assets/heart-icon.svg';
 
 import './index.scss';
 
@@ -16,7 +18,7 @@ const WeatherDailyCard = ({ dailyForecast, isFavoritePageDisplay = false }) => {
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const { isCelsius } = useSelector((state) => state.environment);
-	const { favoriteWeathers, isLoading } = useSelector((state) => state.weather);
+	const { isLoading } = useSelector((state) => state.weather);
 
 	useEffect(() => {
 		const currentDate = new Date();
@@ -25,17 +27,17 @@ const WeatherDailyCard = ({ dailyForecast, isFavoritePageDisplay = false }) => {
 		}
 	}, []);
 
-	useEffect(() => {
-		if (favoriteWeathers) {
-			localStorage.setItem('favoriteWeathers', JSON.stringify(favoriteWeathers));
+	const onClickFavoriteCard = (e) => {
+		if (e.target?.tagName !== 'path' && e.targe?.tagName !== 'svg') {
+			if (isFavoritePageDisplay) {
+				history.push('/');
+				dispatch(getCurrentWeather(dailyForecast));
+			}
 		}
-	}, [favoriteWeathers]);
+	};
 
-	const onClickFavoriteCard = () => {
-		if (isFavoritePageDisplay) {
-			history.push('/');
-			dispatch(getCurrentWeather(dailyForecast));
-		}
+	const onClickFavoriteIcon = () => {
+		dispatch(toggleFavoriteWeather(dailyForecast));
 	};
 
 	return (
@@ -44,6 +46,11 @@ const WeatherDailyCard = ({ dailyForecast, isFavoritePageDisplay = false }) => {
 				<Loading />
 			) : (
 				<Fragment>
+					{isFavoritePageDisplay && (
+						<div className="heart-icon-wrapper">
+							<HeartIcon className="heart-icon marked" onClick={onClickFavoriteIcon} />
+						</div>
+					)}
 					<div className="daily-card-title bold">
 						{isFavoritePageDisplay ? dailyForecast.cityName : renderDayName(dailyForecast.date)}
 					</div>

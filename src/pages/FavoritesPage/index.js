@@ -11,9 +11,13 @@ const FavoritesPage = () => {
 		<div className="favorites-wrapper center-page">
 			<div className="title">Favorites Locations</div>
 			<div className="favorites-list row">
-				{favoriteWeathers.map((weather) => (
-					<WeatherDailyCard dailyForecast={weather} key={weather.key} isFavoritePageDisplay={true} />
-				))}
+				{favoriteWeathers.length ? (
+					favoriteWeathers.map((weather) => (
+						<WeatherDailyCard dailyForecast={weather} key={weather.key} isFavoritePageDisplay={true} />
+					))
+				) : (
+					<div className="favorites-msg">There are not favorites locations</div>
+				)}
 			</div>
 		</div>
 	);

@@ -50,6 +50,7 @@ export const toggleFavoriteWeather = (currentWeather) => (dispatch) => {
 	} else {
 		newFavoriteWeathers = [...favoriteWeathers, currentWeather];
 	}
+	localStorage.setItem('favoriteWeathers', JSON.stringify(newFavoriteWeathers));
 	dispatch({ type: UPDATE_FAVORITES_WEATHER, payload: { newFavoriteWeathers } });
 };
 

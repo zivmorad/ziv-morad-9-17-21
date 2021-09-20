@@ -17,6 +17,10 @@
 		flex-wrap: wrap;
 		margin: 20px;
 		width: 100%;
+		.favorites-msg {
+			margin: auto;
+			text-align: center;
+		}
 		.daily-card-wrapper {
 			margin: 10px auto;
 			cursor: pointer;

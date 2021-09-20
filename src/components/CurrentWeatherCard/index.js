@@ -27,10 +27,6 @@ const CurrentWeatherCard = () => {
 		}
 	}, [favoriteWeathers]);
 
-	useEffect(() => {
-		localStorage.setItem('favoriteWeathers', JSON.stringify(favoriteWeathers));
-	}, [favoriteWeathers]);
-
 	const onClickFavoriteIcon = () => {
 		dispatch(toggleFavoriteWeather(currentWeather));
 	};

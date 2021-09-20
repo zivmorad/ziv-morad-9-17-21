@@ -1,13 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { accuweather } from '../../axios';
 
 import { getCurrentWeather, getUserWeatherLocation, setErr } from '../../actions/weatherActions';
 
-import { accuweather } from '../../axios';
 import CurrentWeatherCard from '../../components/CurrentWeatherCard';
 import Loading from '../../components/Loading';
-import { START_LOADING } from '../../constants';
 import Popup from '../../components/Popup';
+
+import { START_LOADING } from '../../constants';
 
 import { ReactComponent as Search } from '../../assets/search.svg';
 
@@ -99,17 +100,20 @@ const WeatherPage = () => {
 	const onChangeSearchInput = (e) => {
 		const { value } = e.target;
 		// Only en letters
-		const isValid = /^[a-zA-Z]+$/.test(value);
-		if (!isValid) {
+		const isValid = /^[a-zA-Z\s]+$/.test(value);
+		if (!isValid && !searchInput) {
 			setSearchErr('Only en letters allowed');
+		} else {
+			const newValue = value.replace(/[^A-Za-z\s]/gi, '').toLocaleLowerCase();
+			setSearchInput(newValue);
 		}
-		const newValue = value.replace(/[^A-Za-z]/gi, '');
-		setSearchInput(newValue);
 	};
+
 	const onClickPopupOkBtn = () => {
 		setPopupDetails(null);
 		dispatch(setErr(''));
 	};
+
 	return (
 		<div className="weather-wrapper center-page">
 			{popupDetails ? <Popup text={popupDetails.text} onClickOk={onClickPopupOkBtn} /> : ''}

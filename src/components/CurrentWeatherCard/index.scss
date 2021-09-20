@@ -22,9 +22,6 @@
 		}
 		path {
 			transition: fill 1s linear;
-			&.heart-icon_svg__heart-border {
-				fill: #920000;
-			}
 		}
 		&.marked {
 			path {
@@ -63,7 +60,7 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 		width: 90%;
-		bottom: -90px;
+		bottom: -125px;
 	}
 }
 
@@ -71,7 +68,7 @@
 	.current-weather-card-wrapper {
 		.daily-forecasts-row {
 			justify-content: center;
-			bottom: -300px;
+			bottom: -340px;
 		}
 	}
 }
@@ -98,7 +95,7 @@
 @media only screen and (max-width: 359px) {
 	.current-weather-card-wrapper {
 		.daily-forecasts-row {
-			bottom: -637px;
+			bottom: -675px;
 		}
 		.current-weather-row {
 			.icon-wrapper {

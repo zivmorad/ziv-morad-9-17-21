@@ -1,15 +1,33 @@
 @import '../../App.scss';
 
 .daily-card-wrapper {
+	position: relative;
+	justify-content: space-between;
 	min-width: 120px;
 	padding: 10px;
 	margin: 10px;
 	border: 1px solid $main-border-color;
 	border-radius: 15px;
 	background: $background-transparent-color;
+	.heart-icon-wrapper {
+		z-index: 1;
+		position: absolute;
+		right: 5px;
+		height: 22px;
+		.heart-icon {
+			width: 100%;
+			height: 100%;
+			&.marked {
+				path {
+					fill: #35a2c3;
+				}
+			}
+		}
+	}
 	.daily-card-title {
 		font-size: 20px;
 		max-width: 130px;
+		margin-top: 18px;
 	}
 	.weather-icon {
 		width: 100%;
