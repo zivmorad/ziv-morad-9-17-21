@@ -108,6 +108,7 @@ const WeatherPage = () => {
 	};
 	const onClickPopupOkBtn = () => {
 		setPopupDetails(null);
+		dispatch(setErr(''));
 	};
 	return (
 		<div className="weather-wrapper center-page">

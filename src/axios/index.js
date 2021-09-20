@@ -1,13 +1,12 @@
 import axios from 'axios';
 
+const baseURL = process.env.REACT_APP_BASE_URL;
+const apikey = process.env.REACT_APP_WEATHER_API_KEY;
+
+console.log({ baseURL, apikey });
 export const accuweather = axios.create({
-	baseURL: 'https://dataservice.accuweather.com',
+	baseURL,
 	params: {
-		apikey: '6cAQHMaddjbwcUNmq7eKD0zXBK216Lvn',
+		apikey,
 	},
 });
-// 6cAQHMaddjbwcUNmq7eKD0zXBK216Lvn
-// v44g2voakObqbIJP3i3pSsoouLFXELxJ
-// kvSw3yjdeGvnXU76NhhxEt2YBovLGeLh
-//eLG4CrQCOGDxRAAe61oAK1v3FvlpPvfA
-// 0H4RNCzLTuBcXWBJNuKwN2yagWgDghN3
